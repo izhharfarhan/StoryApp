@@ -3,8 +3,10 @@ package com.dicoding.picodiploma.loginwithanimation.data
 import com.dicoding.picodiploma.loginwithanimation.data.api.ApiService
 import com.dicoding.picodiploma.loginwithanimation.data.pref.UserModel
 import com.dicoding.picodiploma.loginwithanimation.data.pref.UserPreference
+import com.dicoding.picodiploma.loginwithanimation.data.response.DetailStoryResponse
 import com.dicoding.picodiploma.loginwithanimation.data.response.LoginResponse
 import com.dicoding.picodiploma.loginwithanimation.data.response.RegisterResponse
+import com.dicoding.picodiploma.loginwithanimation.data.response.StoryResponse
 import kotlinx.coroutines.flow.Flow
 
 class UserRepository private constructor(
@@ -24,6 +26,15 @@ class UserRepository private constructor(
     suspend fun logout() {
         userPreference.logout()
     }
+
+    suspend fun getStories(token: String): StoryResponse {
+        return apiService.getStories(token)
+    }
+
+    suspend fun getStoryDetail(storyId: String, token: String): DetailStoryResponse {
+        return apiService.getStoryDetail(storyId, token)
+    }
+
 
     // Network Operations
     suspend fun login(email: String, password: String): LoginResponse {

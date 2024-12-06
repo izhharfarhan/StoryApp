@@ -16,5 +16,6 @@
     <string name="password_minimum_length_error">Password harus terdiri dari minimal 8 karakter</string>
     <string name="description">This is the Description</string>
     <string name="name_story">This is the Name</string>
-
+    <string name="photo_description">gambar</string>
+    <string name="error">Error</string>
 </resources>

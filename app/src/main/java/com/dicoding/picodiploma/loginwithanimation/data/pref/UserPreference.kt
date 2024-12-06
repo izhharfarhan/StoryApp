@@ -1,6 +1,7 @@
 package com.dicoding.picodiploma.loginwithanimation.data.pref
 
 import android.content.Context
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -20,15 +21,19 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             preferences[TOKEN_KEY] = user.token
             preferences[IS_LOGIN_KEY] = true
         }
+        Log.d("UserPreference", "Session saved: $user") // Log penyimpanan
     }
+
 
     fun getSession(): Flow<UserModel> {
         return dataStore.data.map { preferences ->
-            UserModel(
+            val user = UserModel(
                 preferences[EMAIL_KEY] ?: "",
                 preferences[TOKEN_KEY] ?: "",
                 preferences[IS_LOGIN_KEY] ?: false
             )
+            Log.d("UserPreference", "Session retrieved: $user") // Log pengambilan
+            user
         }
     }
 
