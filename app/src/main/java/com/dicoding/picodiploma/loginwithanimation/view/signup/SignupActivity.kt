@@ -51,7 +51,7 @@ class SignupActivity : AppCompatActivity() {
             when (result) {
                 is Result.Success -> {
                     showAlertDialog("Berhasil", "Akun berhasil dibuat! Silakan login.")
-                    finish() // Kembali ke LoginActivity
+                    finish()
                 }
                 is Result.Error -> {
                     val errorMessage = parseError(result.error)

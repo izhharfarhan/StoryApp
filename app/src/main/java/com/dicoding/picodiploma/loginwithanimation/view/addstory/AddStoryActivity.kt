@@ -31,7 +31,6 @@ class AddStoryActivity : AppCompatActivity() {
         binding = ActivityAddStoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Inisialisasi ViewModel
         viewModel = ViewModelProvider(
             this,
             ViewModelFactory.getInstance(this)
@@ -86,7 +85,6 @@ class AddStoryActivity : AppCompatActivity() {
     private fun uploadImage() {
         val description = binding.edAddDescription.text.toString().trim()
 
-        // Validasi input
         when {
             description.isEmpty() && currentImageUri == null -> {
                 showToast(getString(R.string.error_empty_both))
@@ -102,13 +100,11 @@ class AddStoryActivity : AppCompatActivity() {
             }
         }
 
-        // Proses upload
         val imageFile = uriToFile(currentImageUri!!, this)
         val descriptionRequest = description.toRequestBody("text/plain".toMediaType())
         val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
         val imageMultipart = MultipartBody.Part.createFormData("photo", imageFile.name, requestImageFile)
 
-        // Ambil token dari ViewModel
         viewModel.getSession().observe(this) { user ->
             val token = user.token
             if (token.isNotEmpty()) {

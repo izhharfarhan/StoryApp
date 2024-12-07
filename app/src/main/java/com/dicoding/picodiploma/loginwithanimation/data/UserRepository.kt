@@ -17,7 +17,6 @@ class UserRepository private constructor(
     private val apiService: ApiService
 ) {
 
-    // Local Storage Operations
     suspend fun saveSession(user: UserModel) {
         userPreference.saveSession(user)
     }
@@ -42,8 +41,6 @@ class UserRepository private constructor(
         return apiService.addStory("Bearer $token", photo, description)
     }
 
-
-    // Network Operations
     suspend fun login(email: String, password: String): LoginResponse {
         return apiService.login(email, password)
     }

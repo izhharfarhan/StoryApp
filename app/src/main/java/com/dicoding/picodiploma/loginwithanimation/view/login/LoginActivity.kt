@@ -1,6 +1,5 @@
 package com.dicoding.picodiploma.loginwithanimation.view.login
 
-import LoginViewModel
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
@@ -14,10 +13,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.loginwithanimation.data.pref.UserModel
 import com.dicoding.picodiploma.loginwithanimation.data.response.ErrorResponse
-import com.dicoding.picodiploma.loginwithanimation.databinding.ActivityLoginBinding
 import com.dicoding.picodiploma.loginwithanimation.view.ViewModelFactory
 import com.dicoding.picodiploma.loginwithanimation.view.main.MainActivity
 import com.dicoding.picodiploma.loginwithanimation.data.result.Result
+import com.dicoding.picodiploma.loginwithanimation.databinding.ActivityLoginBinding
 import com.google.gson.Gson
 
 class LoginActivity : AppCompatActivity() {

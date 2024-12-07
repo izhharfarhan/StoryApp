@@ -1,6 +1,6 @@
 package com.dicoding.picodiploma.loginwithanimation.view.main
 
-import StoryAdapter
+import com.dicoding.picodiploma.loginwithanimation.view.adapter.StoryAdapter
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
 
         val fab: FloatingActionButton = findViewById(R.id.fab_add)
         fab.setOnClickListener {
-            // Berpindah ke AddStoryActivity
             val intent = Intent(this, AddStoryActivity::class.java)
             startActivity(intent)
         }
@@ -89,7 +88,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             } else {
-                // Jika user tidak login
                 startActivity(Intent(this, WelcomeActivity::class.java))
                 finish()
             }
@@ -101,7 +99,7 @@ class MainActivity : AppCompatActivity() {
     private fun observeUserSession() {
         viewModel.getSession().observe(this) { user ->
             if (user.isLogin) {
-                binding.txProfile.text = "Hi! ${user.email}" // Ganti `email` dengan nama jika tersedia
+                binding.txProfile.text = "Hi! ${user.email}"
             } else {
                 binding.txProfile.text = "Hi! Guest"
             }
@@ -141,16 +139,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Menambahkan animasi pada tombol logout saat tombol ditekan
     private fun playButtonAnimation() {
         val scaleX = ObjectAnimator.ofFloat(binding.logoutButton, "scaleX", 1f, 1.2f, 1f)
         val scaleY = ObjectAnimator.ofFloat(binding.logoutButton, "scaleY", 1f, 1.2f, 1f)
         val animatorSet = AnimatorSet()
         animatorSet.playTogether(scaleX, scaleY)
-        animatorSet.duration = 300 // Durasi animasi
+        animatorSet.duration = 300
         binding.logoutButton.setOnClickListener {
-            animatorSet.start() // Menjalankan animasi saat tombol di-klik
-            viewModel.logout() // Logout saat tombol diklik
+            animatorSet.start()
+            viewModel.logout()
         }
     }
 }
