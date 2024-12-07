@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.picodiploma.loginwithanimation.data.UserRepository
 import com.dicoding.picodiploma.loginwithanimation.di.Injection
+import com.dicoding.picodiploma.loginwithanimation.view.addstory.AddStoryViewModel
 import com.dicoding.picodiploma.loginwithanimation.view.detail.DetailViewModel
 import com.dicoding.picodiploma.loginwithanimation.view.main.MainViewModel
 
@@ -20,8 +21,11 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(repository) as T
             }
-            modelClass.isAssignableFrom(DetailViewModel::class.java) -> { // Tambahkan ini
+            modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
                 DetailViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(AddStoryViewModel::class.java) -> {
+                AddStoryViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

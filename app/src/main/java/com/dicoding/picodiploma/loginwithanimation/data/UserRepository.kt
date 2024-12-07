@@ -3,11 +3,14 @@ package com.dicoding.picodiploma.loginwithanimation.data
 import com.dicoding.picodiploma.loginwithanimation.data.api.ApiService
 import com.dicoding.picodiploma.loginwithanimation.data.pref.UserModel
 import com.dicoding.picodiploma.loginwithanimation.data.pref.UserPreference
+import com.dicoding.picodiploma.loginwithanimation.data.response.AddStoryResponse
 import com.dicoding.picodiploma.loginwithanimation.data.response.DetailStoryResponse
 import com.dicoding.picodiploma.loginwithanimation.data.response.LoginResponse
 import com.dicoding.picodiploma.loginwithanimation.data.response.RegisterResponse
 import com.dicoding.picodiploma.loginwithanimation.data.response.StoryResponse
 import kotlinx.coroutines.flow.Flow
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 
 class UserRepository private constructor(
     private val userPreference: UserPreference,
@@ -33,6 +36,10 @@ class UserRepository private constructor(
 
     suspend fun getStoryDetail(storyId: String, token: String): DetailStoryResponse {
         return apiService.getStoryDetail(storyId, token)
+    }
+
+    suspend fun addStory(token: String, photo: MultipartBody.Part, description: RequestBody): AddStoryResponse {
+        return apiService.addStory("Bearer $token", photo, description)
     }
 
 

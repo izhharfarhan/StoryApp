@@ -14,11 +14,14 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.picodiploma.loginwithanimation.R
 import com.dicoding.picodiploma.loginwithanimation.data.result.Result
 import com.dicoding.picodiploma.loginwithanimation.databinding.ActivityMainBinding
 import com.dicoding.picodiploma.loginwithanimation.view.ViewModelFactory
+import com.dicoding.picodiploma.loginwithanimation.view.addstory.AddStoryActivity
 import com.dicoding.picodiploma.loginwithanimation.view.detail.DetailStoryActivity
 import com.dicoding.picodiploma.loginwithanimation.view.welcome.WelcomeActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel> {
@@ -37,6 +40,14 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
         }
+
+        val fab: FloatingActionButton = findViewById(R.id.fab_add)
+        fab.setOnClickListener {
+            // Berpindah ke AddStoryActivity
+            val intent = Intent(this, AddStoryActivity::class.java)
+            startActivity(intent)
+        }
+
 
         setupView()
         setupAction()

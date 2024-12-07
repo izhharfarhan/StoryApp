@@ -2,13 +2,13 @@
     <string name="app_name">LoginWithAnimation</string>
     <string name="signup">Daftar</string>
     <string name="login">Masuk</string>
-    <string name="message_welcome_page">Mau belajar Android, iOS, Machine Learning, Cloud, Front-End, Back-End, dan bidang IT lainnya? Di Dicoding aja!</string>
-    <string name="title_welcome_page">Selamat datang di Dicoding!</string>
+    <string name="message_welcome_page">Ayo berbaur bersama dengan membagikan story terbaik anda!</string>
+    <string name="title_welcome_page">Selamat datang di Dicoding Stroy App!</string>
     <string name="title_signup_page">Lengkapi data dirimu di bawah ini ya</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="message_login_page">Masukkan dulu datamu ya</string>
-    <string name="title_login_page">Sudah siap untuk upgrade skill?</string>
+    <string name="title_login_page">Sudah siap untuk memmbagikan pengalaman anda?</string>
     <string name="name">Nama</string>
     <string name="message_main_page">Selamat Belajar di Dicoding.</string>
     <string name="greeting">Halo %1$s,</string>
@@ -18,4 +18,14 @@
     <string name="name_story">This is the Name</string>
     <string name="photo_description">gambar</string>
     <string name="error">Error</string>
+    <string name="btn_add_story">add story\n</string>
+    <string name="image_warning">Silahkan masukan gambar atau foto terlebih dahulu</string>
+    <string name="description_warning">Description cannot be empty</string>
+    <string name="token_missing">Token is missing. Please login again.</string>
+    <string name="upload_failed">Failed to upload story. Please try again.</string>
+    <string name="story_added_success">Story added successfully!</string>
+    <string name="error_empty_both">Silakan masukkan gambar dan deskripsi terlebih dahulu.</string>
+    <string name="error_empty_description">Silakan masukkan deskripsi terlebih dahulu.</string>
+    <string name="error_empty_image">Silakan masukkan gambar atau foto terlebih dahulu.</string>
+
 </resources>
