@@ -43,4 +43,5 @@ class StoryAdapter(
     }
 
     override fun getItemCount(): Int = stories.size
+
 }

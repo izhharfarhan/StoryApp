@@ -27,5 +27,7 @@
     <string name="error_empty_both">Silakan masukkan gambar dan deskripsi terlebih dahulu.</string>
     <string name="error_empty_description">Silakan masukkan deskripsi terlebih dahulu.</string>
     <string name="error_empty_image">Silakan masukkan gambar atau foto terlebih dahulu.</string>
+    <string name="invalid_email_error">Format email tidak valid</string>
+
 
 </resources>

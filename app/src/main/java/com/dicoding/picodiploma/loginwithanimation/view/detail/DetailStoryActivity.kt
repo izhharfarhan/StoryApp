@@ -1,5 +1,7 @@
 package com.dicoding.picodiploma.loginwithanimation.view.detail
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.util.Log
 import android.view.View

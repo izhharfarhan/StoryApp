@@ -1,5 +1,7 @@
 package com.dicoding.picodiploma.loginwithanimation.view.addstory
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -37,6 +39,7 @@ class AddStoryActivity : AppCompatActivity() {
         )[AddStoryViewModel::class.java]
 
         setupUI()
+        playAnimation()
     }
 
     private fun setupUI() {
@@ -141,5 +144,42 @@ class AddStoryActivity : AppCompatActivity() {
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        currentImageUri?.let {
+            outState.putString("image_uri", it.toString())
+        }
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        savedInstanceState.getString("image_uri")?.let {
+            currentImageUri = Uri.parse(it)
+            showImage()
+        }
+    }
+
+
+    private fun playAnimation() {
+        val imagePreview = ObjectAnimator.ofFloat(binding.ivPreviewImage, View.ALPHA, 1f).setDuration(500)
+        val btnCam = ObjectAnimator.ofFloat(binding.btnCamera, View.ALPHA, 1f).setDuration(500)
+        val btnGallery = ObjectAnimator.ofFloat(binding.btnGallery, View.ALPHA, 1f).setDuration(500)
+        val description = ObjectAnimator.ofFloat(binding.edAddDescription, View.ALPHA, 1f).setDuration(500)
+        val uploadButton = ObjectAnimator.ofFloat(binding.buttonAdd, View.ALPHA, 1f).setDuration(500)
+        val progressBar = ObjectAnimator.ofFloat(binding.progressBar, View.ALPHA, 1f).setDuration(500)
+
+        AnimatorSet().apply {
+            playSequentially(
+                imagePreview,
+                btnCam,
+                btnGallery,
+                description,
+                uploadButton,
+                progressBar
+            )
+            startDelay = 100
+        }.start()
     }
 }
